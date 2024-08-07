@@ -1,0 +1,64 @@
+create Database villa
+
+use villa
+
+CREATE TABLE Contact (
+    ContactId INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(100) NOT NULL,
+    Subject NVARCHAR(255) NOT NULL,
+    Message TEXT NOT NULL,
+    CreatedAt DATETIME DEFAULT GETDATE()
+);
+
+CREATE TABLE Property (
+    PropertyID INT PRIMARY KEY IDENTITY(1,1),
+    Category NVARCHAR(50),
+    Address NVARCHAR(255),
+    Description NVARCHAR(MAX),
+    ImageUrl NVARCHAR(255),
+    Area INT,
+	Rooms INT,
+	Parking NVARCHAR(50),
+    PaymentProcess NVARCHAR(50),
+	Price INT
+
+);
+
+
+-- Insert multiple records into the Property table with image URLs in the specified format
+
+INSERT INTO Property (Category, Address, Description, ImageUrl, Area, Rooms, Parking, PaymentProcess, Price)
+VALUES
+('Apartment', '101 First Street, Los Angeles, CA 90001', 'Cozy apartment in downtown. 2 bedrooms, 1 bathroom, close to amenities.', '../assets/images/property1.jpg', 850, 2, 'Yes', 'Bank Transfer', 250000),
+('Villa', '102 Second Street, Miami, FL 33101', 'Beautiful villa with ocean view. 4 bedrooms, 3 bathrooms, private pool.', '../assets/images/property2.jpg', 4000, 4, 'Yes', 'Credit Card', 1500000),
+('Penthouse', '103 Third Street, San Francisco, CA 94101', 'Penthouse with panoramic city views. 3 bedrooms, 2 bathrooms, luxury finishes.', '../assets/images/property3.jpg', 2200, 3, 'Yes', 'Bank Transfer', 950000),
+('Condo', '104 Fourth Street, Seattle, WA 98101', 'Modern condo with city skyline views. 2 bedrooms, 2 bathrooms.', '../assets/images/property4.jpg', 1100, 2, 'No', 'Cash', 350000),
+('Apartment', '105 Fifth Street, Austin, TX 73301', 'Spacious apartment in a quiet neighborhood. 3 bedrooms, 2 bathrooms.', '../assets/images/property5.jpg', 1300, 3, 'Yes', 'Bank Transfer', 280000),
+('Villa', '106 Sixth Street, Orlando, FL 32801', 'Luxury villa with a golf course view. 5 bedrooms, 4 bathrooms, private garden.', '../assets/images/property6.jpg', 5000, 5, 'Yes', 'Credit Card', 2000000),
+('Penthouse', '107 Seventh Street, New York, NY 10001', 'Elegant penthouse with modern amenities. 4 bedrooms, 3 bathrooms, rooftop terrace.', '../assets/images/property1.jpg', 2500, 4, 'Yes', 'Bank Transfer', 1200000),
+('Condo', '108 Eighth Street, Chicago, IL 60601', 'Stylish condo with lake views. 2 bedrooms, 2 bathrooms, near downtown.', '../assets/images/property2.jpg', 950, 2, 'No', 'Cash', 325000),
+('Apartment', '109 Ninth Street, Boston, MA 02101', 'Charming apartment with vintage features. 1 bedroom, 1 bathroom.', '../assets/images/property3.jpg', 700, 1, 'Yes', 'Bank Transfer', 200000),
+('Villa', '110 Tenth Street, San Diego, CA 92101', 'Modern villa with beach access. 4 bedrooms, 3 bathrooms, private pool.', '../assets/images/property4.jpg', 4500, 4, 'Yes', 'Credit Card', 1750000),
+('Penthouse', '111 Eleventh Street, Miami, FL 33101', 'Exclusive penthouse in the heart of the city. 3 bedrooms, 2 bathrooms, large terrace.', '../assets/images/property5.jpg', 2100, 3, 'Yes', 'Bank Transfer', 850000),
+('Condo', '112 Twelfth Street, Seattle, WA 98101', 'Contemporary condo with great amenities. 1 bedroom, 1 bathroom.', '../assets/images/property6.jpg', 800, 1, 'No', 'Cash', 275000),
+('Apartment', '113 Thirteenth Street, Austin, TX 73301', 'Bright apartment with open floor plan. 2 bedrooms, 1 bathroom.', '../assets/images/property1.jpg', 950, 2, 'Yes', 'Bank Transfer', 260000),
+('Villa', '114 Fourteenth Street, Orlando, FL 32801', 'Luxury villa with private lake. 6 bedrooms, 5 bathrooms, luxurious features.', '../assets/images/property2.jpg', 6000, 6, 'Yes', 'Credit Card', 2200000),
+('Penthouse', '115 Fifteenth Street, San Francisco, CA 94101', 'Luxurious penthouse with city views. 4 bedrooms, 3 bathrooms, rooftop pool.', '../assets/images/property3.jpg', 2800, 4, 'Yes', 'Bank Transfer', 1100000),
+('Condo', '116 Sixteenth Street, Chicago, IL 60601', 'Elegant condo in a historic building. 2 bedrooms, 1 bathroom.', '../assets/images/property4.jpg', 950, 2, 'No', 'Cash', 340000),
+('Apartment', '117 Seventeenth Street, Los Angeles, CA 90001', 'Modern apartment with high ceilings. 2 bedrooms, 2 bathrooms.', '../assets/images/property5.jpg', 1000, 2, 'Yes', 'Bank Transfer', 270000),
+('Villa', '118 Eighteenth Street, Miami, FL 33101', 'Contemporary villa with tropical garden. 4 bedrooms, 4 bathrooms, private pool.', '../assets/images/property6.jpg', 5000, 4, 'Yes', 'Credit Card', 1900000),
+('Penthouse', '119 Nineteenth Street, New York, NY 10001', 'Exclusive penthouse with luxury finishes. 3 bedrooms, 2 bathrooms.', '../assets/images/property1.jpg', 2300, 3, 'Yes', 'Bank Transfer', 950000),
+('Condo', '120 Twentieth Street, Boston, MA 02101', 'Modern condo with city views. 1 bedroom, 1 bathroom.', '../assets/images/property2.jpg', 850, 1, 'No', 'Cash', 290000),
+('Apartment', '121 Twenty-First Street, San Diego, CA 92101', 'Stylish apartment near the beach. 2 bedrooms, 2 bathrooms.', '../assets/images/property3.jpg', 1100, 2, 'Yes', 'Bank Transfer', 290000),
+('Villa', '122 Twenty-Second Street, Orlando, FL 32801', 'Spacious villa with large garden. 5 bedrooms, 4 bathrooms.', '../assets/images/property4.jpg', 5500, 5, 'Yes', 'Credit Card', 2100000),
+('Penthouse', '123 Twenty-Third Street, San Francisco, CA 94101', 'Exclusive penthouse with panoramic views. 4 bedrooms, 3 bathrooms.', '../assets/images/property5.jpg', 2600, 4, 'Yes', 'Bank Transfer', 980000),
+('Condo', '124 Twenty-Fourth Street, Seattle, WA 98101', 'Chic condo in a modern building. 2 bedrooms, 1 bathroom.', '../assets/images/property6.jpg', 900, 2, 'No', 'Cash', 310000),
+('Apartment', '125 Twenty-Fifth Street, Austin, TX 73301', 'Contemporary apartment with city views. 3 bedrooms, 2 bathrooms.', '../assets/images/property1.jpg', 1200, 3, 'Yes', 'Bank Transfer', 300000),
+('Villa', '126 Twenty-Sixth Street, Miami, FL 33101', 'Luxurious villa with private beach access. 6 bedrooms, 5 bathrooms.', '../assets/images/property2.jpg', 6000, 6, 'Yes', 'Credit Card', 2300000),
+('Penthouse', '127 Twenty-Seventh Street, New York, NY 10001', 'High-end penthouse with rooftop garden. 4 bedrooms, 3 bathrooms.', '../assets/images/property3.jpg', 2800, 4, 'Yes', 'Bank Transfer', 1050000),
+('Condo', '128 Twenty-Eighth Street, Chicago, IL 60601', 'Modern condo in the city center. 2 bedrooms, 2 bathrooms.', '../assets/images/property4.jpg', 1000, 2, 'No', 'Cash', 330000),
+('Apartment', '129 Twenty-Ninth Street, Los Angeles, CA 90001', 'Beautiful apartment with great amenities. 2 bedrooms, 1 bathroom.', '../assets/images/property5.jpg', 950, 2, 'Yes', 'Bank Transfer', 260000),
+('Villa', '130 Thirtieth Street, Orlando, FL 32801', 'Elegant villa with luxury features. 4 bedrooms, 4 bathrooms.', '../assets/images/property6.jpg', 5000, 4, 'Yes', 'Credit Card', 2200000),
+('Penthouse', '131 Thirty-First Street, San Francisco, CA 94101', 'Sophisticated penthouse with amazing views. 3 bedrooms, 2 bathrooms.', '../assets/images/property1.jpg', 2400, 3, 'Yes', 'Bank Transfer', 930000),
+('Condo', '132 Thirty-Second Street, Seattle, WA 98101', 'Stylish condo with modern amenities. 1 bedroom, 1 bathroom.', '../assets/images/property2.jpg', 850, 1, 'No', 'Cash', 285000);
